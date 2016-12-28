@@ -1,0 +1,384 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Package Name\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-04 06:00+0200\n"
+"PO-Revision-Date: 2016-09-04 11:19+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 0.9.5.3\n"
+
+msgid "PDF Crowd Error:</strong><p>"
+msgstr "Fel PDF Crowd:"
+
+msgid "Download PDF"
+msgstr "Ladda ner PDF"
+
+msgid ""
+"You must set at least username and password for your PDF Crowd account in "
+"your wordpress admin. Look under settings / Generator PDF Crowd settings"
+msgstr ""
+"Du måste åtminstone sätta användarnamn och lösenord för ditt PDF Crowd PDF "
+"konto i din Wordpress admin.  Kolla under menyn Inställningar."
+
+msgid "Username or password not set"
+msgstr "Användarnamn eller lösenord måste anges"
+
+msgid "Arguments"
+msgstr "Argument"
+
+msgid ""
+"You must set equal many urls (convert_urls attribute) as files (out_files "
+"attribute)"
+msgstr ""
+"Du måste sätta lika många urler (convert_urls attribut) som filnamn (out_"
+"files_attribute)"
+
+msgid ""
+"Number of titles should be equal many as urls (convert_urls attribute). If "
+"that is not the case, the default title is used"
+msgstr ""
+"Antal titlar bör vara lika många som urler (convert_urls attribut). Om detta "
+"inte fallet så kommer standardvärde att användas"
+
+msgid "Convert urls and save as files (with pdf extension)"
+msgstr "Konvertera urler och spara som filer (pdf tillägg .pdf)"
+
+msgid "Titles set"
+msgstr "Uppsättningar titlar"
+
+msgid "Upload file:"
+msgstr "Ladda upp fil:"
+
+msgid "Uploaded file does not exist"
+msgstr "Uppladdad fil finns inte"
+
+msgid "Tokens left:"
+msgstr "Tokens kvar:"
+
+msgid "Iteration: "
+msgstr "Iteration:"
+
+msgid "create pdf:"
+msgstr "skapa pdf:"
+
+msgid "connect api"
+msgstr "anslut api"
+
+msgid "Tokens left after creation:"
+msgstr "Tokens kvar efter skapat pdf:"
+
+msgid "Options"
+msgstr "Insställningar"
+
+msgid "client"
+msgstr "klient"
+
+msgid "admin settings"
+msgstr "inställningar administration"
+
+msgid "Generator PDF Crowd settings"
+msgstr "Inställningar PDF Crowd"
+
+msgid "PDF Crowd"
+msgstr "PDF Crowd"
+
+msgid "Tokens left"
+msgstr "Tokens kvar"
+
+msgid "User credentials for the Crowd PDF API"
+msgstr "Användaruppgifter för PDF Crowd PDF API"
+
+msgid "Username"
+msgstr "Användarnamn"
+
+msgid "Key"
+msgstr "Nyckel"
+
+msgid "PDF widths and margins"
+msgstr "Bredder och marginaler PDF"
+
+msgid "Specifies what unit to use in margins/layout of the pdf"
+msgstr "Specificerar vilken enhet som ska användas i marginaler&layout för PDF"
+
+msgid "Width of PDF"
+msgstr "Bredd PDF"
+
+msgid "Height of PDF. Set -1 for a single page PDF."
+msgstr "Höjd PDF -1 för PDF med en sida"
+
+msgid "Top PDF margin"
+msgstr "Toppmarginal PDF"
+
+msgid "Rigth PDF margin"
+msgstr "Högermarginal PDF"
+
+msgid "Bottom PDF margin"
+msgstr "Bottenmarginal PDF"
+
+msgid "Left PDF margin"
+msgstr "Vänstermarginal PDF"
+
+msgid "PDF header and footer"
+msgstr "PDF sidhuvud och sidfot"
+
+msgid ""
+"Place the specified HTML code inside the page header.<br /><br />\n"
+"                %u - URL to convert.\n"
+"<br />%p - The current page number.\n"
+"<br />%n - Total number of pages."
+msgstr ""
+"Placera specificerad HTML inuti sidhuvudet.<br /><br />\n"
+"                %u - vilken url som ska konverteras.\n"
+"<br />%p - Nuvarande sidnummerr.\n"
+"<br />%n - Antal sidor"
+
+msgid ""
+"Place the specified HTML code inside the page footer.<br /><br />\n"
+"%u - URL to convert.<br />\n"
+"%p - The current page number.<br />\n"
+"%n - Total number of pages."
+msgstr ""
+"Placera specificerad HTML inuti sidfoten<br/><br />\n"
+"                %u - vilken url som ska konverteras.\n"
+"<br />%p - Nuvarande sidnummerr.\n"
+"<br />%n - Antal sidor"
+
+msgid ""
+"A comma seperated list of physical page numbers on which the header and "
+"footer are not printed.<br /><br />Negative numbers count backwards from the "
+"last page: -1 is the last page, -2 is the last but one page, and so on.\n"
+"Example: \"1,-1\" will not print the header and footer on the first and the "
+"last page."
+msgstr ""
+"En kommaseparerad lista av fysiska sidnummer där sidhuvud och sidfot inte "
+"skrivs ut.<br /><br />Anges negativa nummer räknas detta från slutet av "
+"dokumentet. -1 är sista sidan, -2  är sidan innan sista sidan osv..\n"
+"Exempel: 1,-1 kommer inte att skriva ut sidhuvud och sidfot på första och "
+"och sista sidan i dokumentet"
+
+msgid ""
+"An offset between physical and logical page numbers. \n"
+"            Example: if set to \"1\" then the page numbering will start with "
+"1 on the second page."
+msgstr ""
+"Offset mellan fysiska och logiska sidnummer. \n"
+"Exempel: Om satt till 1 så kommer sidnumrering att starta på 1 på den andra "
+"sidan i pdfen"
+
+msgid "HTML options"
+msgstr "Inställningar HTML"
+
+msgid "Do not print images."
+msgstr "Skriv inte ut bilder"
+
+msgid "Do not print backgrounds."
+msgstr "Skriv inte ut bakgrunder"
+
+msgid "Do not run JavaScript in web pages."
+msgstr "Exekvera inte javascript"
+
+msgid "Do not create hyperlinks in the PDF."
+msgstr "Spara inte länkar i PDF"
+
+msgid "Use the print CSS media type (if available)."
+msgstr "Använd css utskrift (om tillgänglig)"
+
+msgid ""
+"HTML zoom in percents. It determines the precision used for rendering of the "
+"HTML content. Despite its name, it does not zoom the HTML content. Higher "
+"values can improve glyph positioning and can lead to overall better visual "
+"appearance of the generated PDF."
+msgstr ""
+"HTML zoom i procent.  Den här inställningen definierar precisionen som "
+"används för att rendera html innehåll. Trots namnet så zoomas inte "
+"innehållet. Ju högre värde kan förbättra den s.k. glyfpositioneringen och "
+"kan leda till bättre utseende i den genererade PDFen."
+
+msgid "PDF options"
+msgstr "Inställningar PDF"
+
+msgid ""
+"Encrypts the PDF. This prevents search engines from indexing the document."
+msgstr "Krypterar PDF. Det här förhindrar PDF att bli indexerat i sökmotorer."
+
+msgid "Sets the PDF author field."
+msgstr "Anger författare för PDF"
+
+msgid ""
+"Protects the PDF with an user password. When a PDF has an user password, it "
+"must be supplied in order to view the document and to perform operations "
+"allowed by the access permissions. At most 32 characters."
+msgstr ""
+"Skyddar PDF med ett lösenord. När en PDF har ett lösenord så måste man ange "
+"detta för att visa PDF. Längd max 32 tecken."
+
+msgid ""
+"Protects the PDF with an owner password. Supplying an owner password grants "
+"unlimited access to the PDF including changing the passwords and access "
+"permissions. At most 32 characters."
+msgstr ""
+"Skyddar PDF med ett ägarlösenord. Anger man detta så får man obegränsad "
+"tillgång till PDF inklusive att ändra lösenord och behörigheter. Längd max "
+"32 tecken."
+
+msgid "Do not allow to print the generated PDF."
+msgstr "PDF ska inte kunna skrivas ut"
+
+msgid "Do not allow to modify the PDF."
+msgstr "PDF ska inte kunna redigeras"
+
+msgid "Do not allow to extract text and graphics from the PDF."
+msgstr "Det ska inte vara möjligt att kopiera text och grafik från PDF"
+
+msgid "Specifies the initial page layout when the PDF is opened in a viewer:"
+msgstr "Anger vilken layout när PDF är öppnad i en PDF-läsare"
+
+msgid "Zoom. The zoom is specified by the initial pdf zoom."
+msgstr "Zoom. Inställning hämtas från initial pdf zoom"
+
+msgid "Fit width"
+msgstr "Anpassa efter bredd"
+
+msgid "Fit height"
+msgstr "Anpassa efter höjd"
+
+msgid "Fit page"
+msgstr "Anpassa efter sida"
+
+msgid ""
+"Specifies the initial page zoom type when the PDF is opened in a viewer:"
+msgstr ""
+"Specificerar den initiala typen av zoom när PDF öppnas i en pdf läsare:"
+
+msgid ""
+"Specifies the initial page zoom in percentage when the PDF is opened in a "
+"viewer:"
+msgstr ""
+"Specicierar den initiala sid zoomen i procent när PDF öppnas i en pdf läsare"
+
+msgid "Neither document outline nor thumbnail images visible"
+msgstr "Varken sammanfattning av dokument eller tumnaglar synliga"
+
+msgid "Thumbnail images visible"
+msgstr "Tumnaglar synliga"
+
+msgid "Full-screen mode"
+msgstr "Fullskärmsstorlek"
+
+msgid "Specifies the appearance of the PDF when opened:"
+msgstr "Specificerar layout av PDF när den öppnas:"
+
+msgid "Prints at most the specified number of pages."
+msgstr "Skriver ut max antal sidor"
+
+msgid "Watermark"
+msgstr "Vattenmärke"
+
+msgid ""
+"A public absolute URL of the watermark image (must start either with http:// "
+"or https://). The supported formats are PNG and JPEG."
+msgstr ""
+"En publik absolut URL av vattenmärkes-bild  (måstet börja med http:// eller "
+"https://). PNG och JPG st;ds som filformat."
+
+msgid "The horizontal watermark offset in units. The default value is 0."
+msgstr "Horisontella vattenmärke offset angiven i enhet (specificerat ovan). Standardvärlde är 0"
+
+msgid "The vertical watermark offset in units. The default value is 0."
+msgstr "Vertikal offset angiven i enhter. Standardvärde är 0"
+
+msgid "The watermark rotation in degrees."
+msgstr "Rotering av vattemärke i grader"
+
+msgid ""
+"When set to true, the watermark is be placed in the background. If false it "
+"would be placed in the foreground."
+msgstr ""
+"När denna instälning är satt till sant, så kommer vattenmärket att placeras "
+"i bakgrunden. Om falskt så kommer vattenmärket att visas i förgrunden."
+
+msgid "Miscellaneous"
+msgstr "Övrigt"
+
+msgid "Insert the Pdfcrowd logo to the footer."
+msgstr "Infoga PDF Crowd logotyp i sidfoten"
+
+msgid ""
+"Settings below will be used globally for all shortcodes for the PDF Crowd WP "
+"plugin. You get <strong>username</strong> and the <strong>key</strong> from "
+"your <strong>PDF Crowd account</strong> at <a target=\"_blank\" href="
+"\"http://pdfcrowd.com\">PDF Crowd</a>"
+msgstr ""
+"Inställningarna nedan kommer att användas globala för att all shortcodes"
+"plugin. You kommer att få <strong>användarnamn</strong> och <strong>nyckel</strong> från "
+"ditt <strong>PDF Crowd konto</strong> at <a target=\"_blank\" href="
+"\"http://pdfcrowd.com\">PDF Crowd</a>"
+
+msgid ""
+"Some parameters can be specified in inches (in), millimeters (mm), "
+"centimeters (cm), or points (pt). If no units are specified, points are "
+"assumed."
+msgstr ""
+"Vissa paramterrar kan vara angivna i tum, milimeter, centimeter eller "
+"punkter. Om inga parametrar är angivna så kommer punkter att användas."
+
+msgid "Header and footer text"
+msgstr "Texter för sidhuvud och sidfot"
+
+msgid "Options regarding to the layout/html"
+msgstr "Inställningar gällande layout/html"
+
+msgid "Options for the PDF"
+msgstr "Inställningar för PDF"
+
+msgid "If you want a watermark in the PDF, here are some settings"
+msgstr "Om du vill sätta in ett vattenmärke, så följer här lite inställningar"
+
+msgid ""
+"You must set at least username and password for your PDF Crowd account in "
+"your wordpress admin. Look under settings / Crowd PDF settings"
+msgstr ""
+"Du måste åtminstone sä'tta användarnamn och lösenord för ditt PDF Crowd "
+"konto i din wordpress adminsitration. Leta under inställningar och PDF Crowd "
+"settings"
+
+msgid "options"
+msgstr "inställningar"
+
+msgid "True"
+msgstr "Sant"
+
+msgid "False"
+msgstr "Falskt"
+
+msgid "Millimeters"
+msgstr "Milimeter"
+
+msgid "Centimeters"
+msgstr "Centimeter"
+
+msgid "Inches"
+msgstr "Tum"
+
+msgid "Points"
+msgstr "Punkter"
+
+msgid "Single page"
+msgstr "Enkelsidig"
+
+msgid "Continuous"
+msgstr "Löpande"
+
+msgid "Continuous facing"
+msgstr "Löpande vy"
