@@ -133,6 +133,7 @@ if( !class_exists('pdfgeneratorcrowd') ) {
             'html_class' => '', //If you want to style the link use this class
             'link_titles' => $link_title_default, //What to show in link(s) creating a downloadlink. Several link should be separated by semicolon
             'data_postid' => null, //Data from postid. Fetch data from this specific post/page id
+            'data_cpt' => 'post', //Fetch data from specific custom post type (default to normal POST)
             'data_fields' => '',   //Tell name of fields that should be used when fetching data from a specific post/page
             'data_acfkeys' => '' //If using ACF, then tell key (this is important) of each value (this is used for retrieving labels in for example for usage in headers of a repeater-field)
         );
@@ -169,7 +170,7 @@ if( !class_exists('pdfgeneratorcrowd') ) {
         
         $html_content = ''; //to return from shortcode
         
-       //Go through all urls and files defined (could be one of each as well)
+       
         $all_converturls = explode (';', $convert_urls);
         $all_outfiles = explode(';', $out_files);
         $all_linktitles = explode(';', $link_titles);
@@ -247,7 +248,28 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                     $out_file = basename( $acu_url );
                     
                     $data_pid = (int)$data_postid;
-                    
+                    $data_postids = array();
+                        
+                    //If data_pid is set to alla .Then fetch data from all post (based on specified post type in data_cpt)
+                    if ( $data_postid === 'all' || $data_postid === '{all}' ) {
+                        //Get all posts from specific post type (or POST if normal post)
+                        //
+                        $query_args = array(
+                            'post_type' => $data_cpt
+                        );
+
+                        $all_posts_cpt = new WP_Query( $query_args );
+                        $getposts_cpt = $all_posts_cpt->get_posts();
+
+                        foreach ( $getposts_cpt as $cpt )
+                        {
+                            $data_postids[] = $cpt->ID; 
+                        }
+                    }
+                    else {
+                        $data_postids = array( $data_pid );                              
+                    }
+       
                     
                     $ex_datafields = explode(';', $data_fields);
                     $ex_datakeys = explode (';', $data_acfkeys);                        
@@ -256,8 +278,8 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                     {
                         echo __('Fetching page/post...', 'pdfcrowd-wp');
                         var_dump ( $acu_url );
-                        echo __('...with data from postid', 'pdfcrowd-wp');
-                        var_dump ( $data_pid  );
+                        echo __('...with data from postid(s)', 'pdfcrowd-wp');
+                        var_dump ( $data_postids  );
                         echo __('...using these datafields', 'pdfcrowd-wp');                        
                         var_dump ( $ex_datafields );
                         echo __('..ACF datafieldkey values for each datafield'); 
@@ -265,11 +287,23 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                     }
                                             
                         //Go through datafields and replace fetched content with
-                        //actual values from these fields (for data_postid)
+                        //actual values from these fields (for data_postid ( $dpi in loop) )
+                        $dv = '';
+                        $acu_content_html_total = '';
+                        if ( $debug_mode === 'yes' )
+                        {                           
+                            echo __('TEMPLATE');
+                            var_dump ( $acu_content_html );
+                        }
+                        
+                        foreach ( $data_postids as $dpi )
+                        {
+                            $new_html = $acu_content_html;
+                                                    
                         $key_index = 0;
                         foreach ( $ex_datafields as $eda )
                         {                            
-                            $datafield_value = get_field( $eda, $data_pid );
+                            $datafield_value = get_field( $eda, $dpi );
                             if ( is_array ( $ex_datakeys )  ) {
                                 $key_datafield = $ex_datakeys[$key_index];
                             }
@@ -379,18 +413,23 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                     $datafield_value = '[' . __('Value not set', 'pdfcrowd-wp') . ']';
                                 }
                             }
-                            
+                                                        
                             $htmlcontent_search_for = '[' . $eda . ']';
-                            $acu_content_html = str_replace($htmlcontent_search_for, $datafield_value, $acu_content_html );
+                            $new_html = str_replace($htmlcontent_search_for, $datafield_value, $new_html );
+                        }
+                            
+                        if ( $debug_mode === 'yes' )
+                        {
+                            echo __('CURRENT CONTENT');
+                            var_dump ( $new_html );                            
                         }
                         
-                         if ( $debug_mode === 'yes' )
-                         {
-                            echo __('...content based on a specific post/page with actual datafields included', 'pdfcrowd-wp');                        
-                            var_dump ( $acu_content_html );
-                         }
-                         
+                        $acu_content_html_total .= $new_html;
 
+
+                            //HERE END LOOP postids
+                        }
+                        
                 }
                 
                 //If outfile has .pdf extension set, remove it here
@@ -696,15 +735,15 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                     }
 
                      //Actual conversions to pdf
-                     if ( strlen ( $acu_content_html ) >0 )
+                     if ( strlen ( $acu_content_html_total ) >0 )
                      {
                          if ( $debug_mode === 'yes' )
                          {
                              echo __('Create pdf from html content',  'pdfcrowd-wp');          
-                             var_dump ( $acu_content_html);
+                             var_dump ( $acu_content_html_total);
                          }
                          
-                         $pdf = $client->convertHtml( $acu_content_html, fopen( $temp_uploadfile, 'wb'));
+                         $pdf = $client->convertHtml( $acu_content_html_total, fopen( $temp_uploadfile, 'wb'));
                      }
                      else if ( strlen ( $acu_url )> 0) {
                          if ( $debug_mode === 'yes' )
