@@ -150,16 +150,17 @@ if( !class_exists('pdfgeneratorcrowd') ) {
             'html_class' => '', //If you want to style the link use this class
             'link_titles' => $link_title_default, //What to show in link(s) creating a downloadlink. Several link should be separated by semicolon
             'data_postid' => null, //Data from postid. Fetch data from this specific post/page id
+            'data_includeonlyfieldtrue' => null, //If you have a select field (true/false) then include post only when this field is true 
             'data_cpt' => 'post', //Fetch data from specific custom post type (default to normal POST)
             'data_fields' => '',   //Tell name of fields that should be used when fetching data from a specific post/page
             'data_acfkeys' => '', //If using ACF, then tell key (this is important) of each value (this is used for retrieving labels in for example for usage in headers of a repeater-field)
-            'add_related_field_toarray' => null //If you want to include a field in array (probably acf repeater field) that is related to another field
+            'add_related_fields' => null //If you want to include a field in array (probably acf repeater field) that is related to another field
           );
-        //add_related_field_toarray 
+        //add_related_fields 
         //{what array};{what column in array};{title};{what field to check};{what field to return}
         //
         //Example: 
-        //add_related_field_toarray="acf_customer_trailers;1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type"
+        //add_related_fields="acf_customer_trailers;1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type"
                 
         if ( $this->options === false )
         {
@@ -284,9 +285,24 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                         $all_posts_cpt = new WP_Query( $query_args );
                         $getposts_cpt = $all_posts_cpt->get_posts();
 
+                        
                         foreach ( $getposts_cpt as $cpt )
                         {
-                            $data_postids[] = $cpt->ID; 
+                        
+                            if ($data_includeonlyfieldtrue !== null)
+                            {
+                                //Field to check
+                                $field_check_truevalue = get_field($data_includeonlyfieldtrue, $cpt->ID);
+                                
+                                //Only include post(s) if field is checked for resp. post
+                                if ( $field_check_truevalue !== false )
+                                {
+                                    $data_postids[] = $cpt->ID; 
+                                }
+                            }
+                            else {
+                                $data_postids[] = $cpt->ID; 
+                            }
                         }
                     }
                     else {
@@ -377,9 +393,9 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                             $table_col = 1;
 
                                             //If related field shoud be added, handle this here
-                                            if ( add_related_field_toarray !== null)
+                                            if ( add_related_fields !== null)
                                             {
-                                                $arfarr = explode( ';', $add_related_field_toarray );
+                                                $arfarr = explode( ';', $add_related_fields );
                                                 $include_col = (int)$arfarr[0];
                                                 $rtitle = array('label' => $arfarr[1],
                                                                       'name' => $arfarr[3],
@@ -446,9 +462,9 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                         
                                        
                                         //If related fields should be handled
-                                        if ( $add_related_field_toarray !== null)
+                                        if ( $add_related_fields !== null)
                                         {
-                                            $arfarr = explode( ';', $add_related_field_toarray );
+                                            $arfarr = explode( ';', $add_related_fields );
                                             $include_search = $arfarr[2];
                                             $include_return = $arfarr[3];
 
