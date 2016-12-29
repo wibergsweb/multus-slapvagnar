@@ -114,3 +114,18 @@ function genesis_sample_comments_gravatar( $args ) {
 	return $args;
 
 }
+
+//Add dashboard admin widget for delivery notes for customers
+add_action( 'add_meta_boxes', 'add_events_metaboxes' );
+function add_events_metaboxes() 
+{
+    add_meta_box('id-deliverynotes', 'Följesedlar', 'deliverynotes', 'customer', 'side', 'default');
+}
+
+function deliverynotes() 
+{
+    echo '<ul>';
+    echo '<li>' . do_shortcode( '[pdfcrowd_generate debug_mode="no" targetblank="yes" create_downloadlink="yes" out_files="foljesedel2" overwrite_pdf="no" convert_urls="{22}" data_postid="current" data_cpt="customer" data_fields="acf_customer_phone;acf_customer_name;acf_customer_trailers" data_acfkeys="field_585b0870afcf6;field_585b064d43bec;field_585b0b3288d2e" link_titles="Följesedel för denna kund" add_related_field_toarray="1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type"]') . '</li>';    
+    echo '<li>' . do_shortcode( '[pdfcrowd_generate debug_mode="no" targetblank="yes" create_downloadlink="yes" out_files="foljesedel2" overwrite_pdf="no" convert_urls="{22}" data_postid="all" data_cpt="customer" data_fields="acf_customer_phone;acf_customer_name;acf_customer_trailers" data_acfkeys="field_585b0870afcf6;field_585b064d43bec;field_585b0b3288d2e" link_titles="Följesedel för alla kunder (med autofakturering)" add_related_field_toarray="1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type"]') . '</li>';   
+    echo '</ul>';
+}
