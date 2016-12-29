@@ -16,6 +16,7 @@ defined( 'ABSPATH' ) or die( 'No access allowed!' );
 //require_once('core/options.php');
 require_once('core/trailer.php');
 require_once('core/trailertype.php');
+require_once('core/trailermodel.php');
 require_once('core/customer.php');
 
 

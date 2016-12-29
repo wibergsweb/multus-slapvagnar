@@ -270,7 +270,9 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                     $acu_content_html = apply_filters('the_content', $acu_content->post_content);
 
                     $out_file = basename( $acu_url );
-                    
+                    if ( $data_postid === 'current') {
+                        $data_postid = get_the_ID(); 
+                    }
                     $data_pid = (int)$data_postid;
                     $data_postids = array();
                         
@@ -294,8 +296,15 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                 //Field to check
                                 $field_check_truevalue = get_field($data_includeonlyfieldtrue, $cpt->ID);
                                 
+                                if ( $debug_mode === 'yes' )
+                                {
+                                    echo __('Field' . $data_includeonlyfieldtrue );
+                                    echo __('Fieldvalue=');
+                                    var_dump ( $field_check_truevalue);
+                                }
+                                
                                 //Only include post(s) if field is checked for resp. post
-                                if ( $field_check_truevalue !== false )
+                                if ( $field_check_truevalue === true )
                                 {
                                     $data_postids[] = $cpt->ID; 
                                 }
@@ -309,6 +318,7 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                         $data_postids = array( $data_pid );                              
                     }
        
+                    
                     
                     $ex_datafields = explode(';', $data_fields);
                     $ex_datakeys = explode (';', $data_acfkeys);                        
@@ -393,9 +403,17 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                             $table_col = 1;
 
                                             //If related field shoud be added, handle this here
-                                            if ( add_related_fields !== null)
+                                            if ( $add_related_fields !== null)
                                             {
-                                                $arfarr = explode( ';', $add_related_fields );
+                                                //Split up add_related_field by &
+                                                $split_relatedfields = explode ('&', $add_related_fields);
+
+                                                                                              
+                                               
+
+                                            foreach ($split_relatedfields as $splitval_key=>$splitvalue )
+                                            {
+                                                $arfarr = explode( ';', $splitvalue );
                                                 $include_col = (int)$arfarr[0];
                                                 $rtitle = array('label' => $arfarr[1],
                                                                       'name' => $arfarr[3],
@@ -404,29 +422,42 @@ if( !class_exists('pdfgeneratorcrowd') ) {
 
                                                 //Create subfields array of subarray (so its possible 
                                                 //to sort/swap positions of item in array)
-                                                $subfields = array();
-                                                $subfield_index=0;
-                                                foreach ( $acf_fieldobj['sub_fields'] as $afo)
-                                                {                                                        
-                                                    $subfields[]= $afo;
-                                                    $subfield_index++;
-                                                }                        
-                                                $subfields[] = $rtitle;     
+                                                  
+                                                   
+                                                   if ( $splitval_key === 0)
+                                                   {
+                                                       $subfields = array();
+                                                        $subfield_index=0;
+                                                        foreach ( $acf_fieldobj['sub_fields'] as $afo)
+                                                        {                                                        
+                                                            $subfields[]= $afo;
+                                                            $subfield_index++;
+                                                        }   
+                                                   }
+                                                   else {
+                                                       $subfield_index++;
+                                                   }
+                                                   
+                                                $subfields[] = $rtitle;  
+
 
                                                 //Swap items so position get correct in index based on what 
                                                 //user defined in shortcode
-                                                $movefrom_item =  $subfield_index; //Newly added index                                                   
+                                                $movefrom_item =  count($subfields)-1; //Newly added index                                                   
                                                 $moveto_item = $include_col; //What user defined in shortcode
 
                                                 //Swap items in array
                                                 $this->array_swap($subfields, $movefrom_item, $moveto_item);
 
+                                           
                                                 if ( $debug_mode === 'yes')
                                                 {
                                                     echo __('Swap these items (headers)');
                                                     var_dump ( $movefrom_item);
                                                     var_dump ( $moveto_item);
                                                 }
+                                                
+                                            }
 
                                             }
                                             else
@@ -464,48 +495,60 @@ if( !class_exists('pdfgeneratorcrowd') ) {
                                         //If related fields should be handled
                                         if ( $add_related_fields !== null)
                                         {
-                                            $arfarr = explode( ';', $add_related_fields );
-                                            $include_search = $arfarr[2];
-                                            $include_return = $arfarr[3];
-
-                                            $pid_search = $dfv[$include_search]->ID;    
-                                            $fields_of_pid = get_fields( $pid_search );                                                            
-                                            $return_value = $fields_of_pid[$include_return];
-
-                                            if ( is_object($return_value) )
+                                            //Split up add_related_field by & (if user want to add several fields with relationships)
+                                            $split_relatedfields = explode ('&', $add_related_fields);
+                                            
+                                            //Split up actual fields
+                                            foreach ($split_relatedfields as $splitkey=>$splitvalue )
                                             {
-                                                $dfv[$include_return] = $return_value->post_title;
-                                            }
-                                            else 
-                                            {
-                                                $dfv[$include_return] = $return_value;
-                                            }
+                                                $arfarr = explode( ';', $splitvalue );
+                                                $include_col = $arfarr[0];
+                                                $include_search = $arfarr[2];
+                                                $include_return = $arfarr[3];
 
-                                            //Sort $dfv so values are related to correct headers                                                        
-                                            $dfarr = array();
-                                            $dfv_keys = array();
-                                            foreach ( $dfv as $dfk_key => $dfv_value ) 
-                                            {
-                                                $dfv_keys[] = $dfk_key; //Save this for rearranging keys below correctly
-                                                $dfarr[][$dfk_key]= $dfv_value;
+                                                $pid_search = $dfv[$include_search]->ID;    
+                                                $fields_of_pid = get_fields( $pid_search );                                                            
+                                                $return_value = $fields_of_pid[$include_return];
+
+                                                if ( is_object($return_value) )
+                                                {
+                                                    $dfv[$include_return] = $return_value->post_title;
+                                                }
+                                                else 
+                                                {                                                    
+                                                    $dfv[$include_return] = $return_value;
+                                                }
+                                                                                            
+                                                //Sort $dfv so values are related to correct headers     
+                                                $dfarr = array();
+                                                $dfv_keys = array();
+                                                foreach ( $dfv as $dfk_key => $dfv_value ) 
+                                                {
+                                                    $dfv_keys[] = $dfk_key; //Save this for rearranging keys below correctly
+                                                    $dfarr[][$dfk_key]= $dfv_value;
+                                                }
+
+                                                //Reorder array with numeric indexnumbers
+                                                //Also rearrang keys so they are in correct order when
+                                                //recreatig $dfv-array below
+                                                $movefrom_item =  count($dfv_keys)-1; //Newly added index                                                   
+                                                $moveto_item = $include_col; //What user defined in shortcode
+                                                                                                
+                                                $this->array_swap($dfarr, $movefrom_item, $moveto_item);                                                         
+                                                $this->array_swap($dfv_keys, $movefrom_item, $moveto_item);
+
+                                                //Recreate array with new order                                                
+                                                 $inr = 0;
+                                                 $dfv = array();      
+                                                 foreach ( $dfv_keys as $ditem )
+                                                 {
+                                                     $dfv[$ditem] = $dfarr[$inr][$ditem];
+                                                     $inr++;
+                                                 }                                                
+                                             
                                             }
-
-                                            //Reorder array with numeric indexnumbers
-                                            //Also rearrang keys so they are in correct order when
-                                            //recreatig $dfv-array below
-                                            $this->array_swap($dfarr, $movefrom_item, $moveto_item);                                                         
-                                            $this->array_swap($dfv_keys, $movefrom_item, $moveto_item);
-
-                                             //Recreate array with new order
-                                             $inr = 0;
-                                             $dfv = array();      
-                                             foreach ( $dfv_keys as $ditem )
-                                             {
-                                                 $dfv[$ditem] = $dfarr[$inr][$ditem];
-                                                 $inr++;
-                                             }         
                                        }
-                                                
+                                       
                                         //Go through values of sub array
                                         foreach ( $dfv as $subarr_item_value )
                                         {
