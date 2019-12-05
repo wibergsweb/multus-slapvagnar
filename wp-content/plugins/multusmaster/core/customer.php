@@ -38,23 +38,23 @@ if( !class_exists('multuscustomer') ) {
     {   
         //Load (if there are any) translations
         $basepath_nocore = str_replace( 'core', '', dirname( plugin_basename(__FILE__) )  );
-        $loaded_translation = load_plugin_textdomain( 'multusmaster-wp', false, $basepath_nocore . '/lang/' );
-        
+        $loaded_translation = load_plugin_textdomain( 'multusmaster-wp', false, $basepath_nocore . 'lang/' );
+
         //register custom post type
         $post_labels = array(
-              'name' => __('Customer', 'multusmaster-wp'),
-              'singular_name' => __('Customer', 'multusmaster-wp'),
-              'add_new' => __('Add customer', 'multusmaster-wp'),
-              'add_new_item' => __('Add new customer', 'multusmaster-wp'),
-              'edit_item' => __('Edit customer', 'multusmaster-wp'),
-              'new_item' => __('New customer', 'multusmaster-wp'),
-              'all_items' => __('All customers', 'multusmaster-wp'),
-              'view_item' => __('Show customer', 'multusmaster-wp'),
-              'search_items' => __('Search customer', 'multusmaster-wp'),
-              'not_found' => __('No customers found', 'multusmaster-wp'),
-              'not_found_in_trash' => __('No customers found in trash', 'multusmaster-wp'),
+              'name' => __('Kund'),
+              'singular_name' => __('Kund', 'multusmaster-wp'),
+              'add_new' => __('Lägg till kund', 'multusmaster-wp'),
+              'add_new_item' => __('Lägg till ny kund', 'multusmaster-wp'),
+              'edit_item' => __('Redigera kund', 'multusmaster-wp'),
+              'new_item' => __('Ny kund', 'multusmaster-wp'),
+              'all_items' => __('Alla kunder', 'multusmaster-wp'),
+              'view_item' => __('Visa kund', 'multusmaster-wp'),
+              'search_items' => __('Sök kund', 'multusmaster-wp'),
+              'not_found' => __('Inga kunder funna', 'multusmaster-wp'),
+              'not_found_in_trash' => __('Inga kunder hittades i soptunnan', 'multusmaster-wp'),
               'parent_item_colon'  => '',
-              'menu_name' => __('Customers', 'multusmaster-wp')
+              'menu_name' => __('Kunder', 'multusmaster-wp')
             );
             $post_args = array(
               'labels' => $post_labels,

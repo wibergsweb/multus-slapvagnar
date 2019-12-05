@@ -120,12 +120,18 @@ add_action( 'add_meta_boxes', 'add_events_metaboxes' );
 function add_events_metaboxes() 
 {
     add_meta_box('id-deliverynotes', 'Följesedlar', 'deliverynotes', 'customer', 'side', 'default');
+    add_meta_box('id-extratextfields', 'Visa/Dölj inmatningsfält', 'showhide_textfields', 'customer', 'side', 'default');
 }
 
+//TODO:Autosum-field must be last in list!!!!???
 function deliverynotes() 
 {
     echo '<ul>';
-    echo '<li>' . do_shortcode( '[pdfcrowd_generate debug_mode="no" targetblank="yes" create_downloadlink="yes" out_files="foljesedelkund" overwrite_pdf="yes" convert_urls="{22}" data_postid="current" data_cpt="customer" data_fields="acf_customer_phone;acf_customer_name;acf_customer_trailers" data_acfkeys="field_585b0870afcf6;field_585b064d43bec;field_585b0b3288d2e" link_titles="Följesedel för kund" add_related_fields="1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type&2;Modell;acf_customer_trailers_reg;acf_trailer_model"]') . '</li>';    
-    echo '<li>' . do_shortcode( '[pdfcrowd_generate debug_mode="no" targetblank="yes" create_downloadlink="yes" out_files="foljesedelkunder" overwrite_pdf="yes" convert_urls="{22}" data_postid="all" data_cpt="customer" data_fields="acf_customer_phone;acf_customer_name;acf_customer_trailers" data_acfkeys="field_585b0870afcf6;field_585b064d43bec;field_585b0b3288d2e" link_titles="Följesedel för alla kunder (med autofakturering)" add_related_fields="1;Släpvagnstyp;acf_customer_trailers_reg;acf_trailer_type&2;Modell;acf_customer_trailers_reg;acf_trailer_model" data_includeonlyfieldtrue="acf_customer_autoinvoice"]') . '</li>';   
+    echo '<li>' . do_shortcode( '[pdfcrowd_generate roundup_totalaftervat="yes" nrformat_autosumfields="2;,;" nrformat_keyfields="acf_customer_trailers_rent;2;,;;" last_shortcode="yes" debug_mode="no" autosum_fields="yes" targetblank="yes" create_downloadlink="yes" overwrite_pdf="datachange" convert_urls="{22}" data_postid="current" data_cpt="customer" data_fields="acf_customer_ort;acf_customer_streetaddress;acf_customer_postnr;acf_customer_phone;acf_customer_contact;acf_customer_trailers" data_acfkeys="field_585b0866afcf5;field_5877f52c93b9a;field_585b084fafcf4;field_585b0870afcf6;field_585b08357c2a1;field_585b0b3288d2e" link_titles="Följesedel för kund" exclude_subfields="acf_customer_trailers_delivery;acf_customer_trailers_yearmodel;acf_customer_trailers_totalweight" css_file="theme"]') . '</li>';      
     echo '</ul>';
+}
+
+function showhide_textfields() 
+{
+    echo '<ul><li><a class="showandhide-textfields" href="#">Årsmodell, Leveransdatum, Totalvikt</a></li></ul>';
 }

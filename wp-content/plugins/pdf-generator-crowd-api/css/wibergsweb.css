@@ -5,3 +5,4 @@
 .larger-text {width:50%;}
 .tokens-left {font-weight:bold;}
 .textarea-option {min-width:400px;min-height:300px;}
+p.error {font-weight:bold;color:#ff0000;}

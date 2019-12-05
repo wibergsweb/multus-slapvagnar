@@ -1,0 +1,19 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.php$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# Loopia: Values from the City Sites environment
+php_value memory_limit 256M
+php_value max_execution_time 240
+php_value max_input_vars 3000
+php_value serialize_precision 101
+DirectoryIndex index.htm index.php index.html index.wml default.html default.htm default.php
+php_value upload_max_filesize 220M
+php_value post_max_size 220M

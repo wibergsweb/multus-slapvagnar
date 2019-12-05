@@ -1,37 +1,22 @@
 jQuery(function ($) {        
-
-    $( "ul.gecoitems li" ).on( "click", "a.collage", function() {
-        var href = $(this).attr('href');
-        if (href.charAt(0) == '#') {
-                 
-            if ( href == '#infoclick') {
-                //Get nearest title and description
-                //and apply it to actual section below (called info-click)
-                var collage_title = $(this).next('span').html();
-                var collage_desc = $(this).next('span').next('span').html();
-                $(".infoclick-title").html ( collage_title );
-                $(".infoclick-desc").html ( collage_desc );                
-                $(".info-click").show();
-            }
-            else if ( href == '#workingprocess') {
-                $('.image-lightbox-gallery').find('#geco-image-0').show().trigger('click').hide(); //Show first to able to trigger!
-            }
-            else {    
-                var splittedVal = href.split('[img]'); //Split if [img] is set                               
-                var gallery_ul = splittedVal[0];
-                var gallery_ul_splitted = gallery_ul.split('-');
-                var html_gallery_element = gallery_ul_splitted[1];
-                if ( html_gallery_element !== 'undefined' ) {
-                    var what_to_click = '#' + html_gallery_element + '-image-' + splittedVal[1];
-                    $(what_to_click).show().trigger('click').hide();
-                }
-                else {
-                    alert(href); //Not a gallery and not nothing spec.
-                }
-            }
-        }
-        
-      });
-
-    //var href = $(this).attr('href');
+    
+    $('.acf-th-acf_customer_trailers_totalweight').addClass('hidetextfield');
+    $('.acf-th-acf_customer_trailers_yearmodel').addClass('hidetextfield');
+    $('.acf-th-acf_customer_trailers_delivery').addClass('hidetextfield');
+    $('.field.sub_field.field_type-text.field_key-field_58780a43ce538').addClass('hidetextfield');
+    $('.field.sub_field.field_type-text.field_key-field_58780a68ce539').addClass('hidetextfield');
+    $('.field.sub_field.field_type-date_picker.field_key-field_58780ad0ce53b ').addClass('hidetextfield');
+    
+    //Toggle show and hide
+    $("a.showandhide-textfields").on("click",function(e) {
+        e.preventDefault();
+        $("a.showandhide-textfields").toggleClass('showing');
+        $('.acf-th-acf_customer_trailers_totalweight').toggleClass('hidetextfield');
+        $('.acf-th-acf_customer_trailers_yearmodel').toggleClass('hidetextfield');
+        $('.acf-th-acf_customer_trailers_delivery').toggleClass('hidetextfield');
+        $('.field.sub_field.field_type-text.field_key-field_58780a43ce538').toggleClass('hidetextfield');
+        $('.field.sub_field.field_type-text.field_key-field_58780a68ce539').toggleClass('hidetextfield');
+        $('.field.sub_field.field_type-date_picker.field_key-field_58780ad0ce53b ').toggleClass('hidetextfield');        
+    });
+    
 });

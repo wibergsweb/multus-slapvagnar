@@ -42,19 +42,19 @@ if( !class_exists('multustrailermodel') ) {
         
         //register custom post type
         $post_labels = array(
-              'name' => __('Trailermodel', 'multusmaster-wp'),
-              'singular_name' => __('Trailermodel', 'multusmaster-wp'),
-              'add_new' => __('Add trailermodel', 'multusmaster-wp'),
-              'add_new_item' => __('Add new trailermodel', 'multusmaster-wp'),
-              'edit_item' => __('Edit trailermodel', 'multusmaster-wp'),
-              'new_item' => __('New trailermodel', 'multusmaster-wp'),
-              'all_items' => __('All trailermodels', 'multusmaster-wp'),
-              'view_item' => __('Show trailermodel', 'multusmaster-wp'),
-              'search_items' => __('Search trailermodel', 'multusmaster-wp'),
-              'not_found' => __('No trailermodels found', 'multusmaster-wp'),
-              'not_found_in_trash' => __('No trailermodels found in trash', 'multusmaster-wp'),
+              'name' => __('Fabrikat', 'multusmaster-wp'),
+              'singular_name' => __('Fabrikat', 'multusmaster-wp'),
+              'add_new' => __('Lägg till fabrikat', 'multusmaster-wp'),
+              'add_new_item' => __('Lägg till nytt fabrikat', 'multusmaster-wp'),
+              'edit_item' => __('Redigera fabrikat', 'multusmaster-wp'),
+              'new_item' => __('Nytt fabrikat', 'multusmaster-wp'),
+              'all_items' => __('Alla fabrikat', 'multusmaster-wp'),
+              'view_item' => __('Visa fabrikat', 'multusmaster-wp'),
+              'search_items' => __('Sök fabrikat', 'multusmaster-wp'),
+              'not_found' => __('Inga fabrikat funna', 'multusmaster-wp'),
+              'not_found_in_trash' => __('Inga fabrikat funna i soptunnan', 'multusmaster-wp'),
               'parent_item_colon'  => '',
-              'menu_name' => __('Trailermodels', 'multusmaster-wp')
+              'menu_name' => __('Fabrikat', 'multusmaster-wp')
             );
             $post_args = array(
               'labels' => $post_labels,

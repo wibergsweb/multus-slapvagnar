@@ -1,0 +1,135 @@
+********************************************************************************
+DUPLICATOR INSTALL-LOG
+STEP1 START @ 09:11:52
+NOTICE: Do NOT post to public sites or forums
+********************************************************************************
+VERSION:	2.0.10
+PHP:		7.0.10 | SAPI: apache2handler
+SERVER:		Apache/2.4.23 (Win64) OpenSSL/1.0.2h PHP/7.0.10
+DOC ROOT:	F:/wamp64/www/multus_slapvagnar
+DOC ROOT 755:	true
+LOG FILE 644:	true
+BUILD NAME:	20170112_5de970407d105_20191205210152
+REQUEST URL:	http://slapvagnar/installer.php
+
+********************************************************************************
+ARCHIVE SETUP
+********************************************************************************
+NAME:	20170112_5de970407d105_20191205210152_archive.zip
+SIZE:	25.62MB
+
+ZIP: Ziparchive Unzip
+EXTRACTING
+ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 5913
+    [filename] => F:\wamp64\www\multus_slapvagnar\20170112_5de970407d105_20191205210152_archive.zip
+    [comment] => 
+)
+COMPLETE: true
+
+WEB SERVER CONFIGURATION FILE RESET:
+- Backup of .htaccess/web.config made to .orig
+- Reset of .htaccess/web.config files
+
+UPDATED FILES:
+- SQL FILE:  'F:/wamp64/www/multus_slapvagnar/installer-data.sql'
+- WP-CONFIG: 'F:/wamp64/www/multus_slapvagnar/wp-config.php'
+
+ARCHIVE RUNTIME: 13.0407 sec.
+
+
+********************************************************************************
+DATABASE-ROUTINES
+********************************************************************************
+--------------------------------------
+SERVER ENVIROMENT
+--------------------------------------
+MYSQL VERSION:	5.7.14
+TIMEOUT:	5000
+MAXPACK:	16777216
+--------------------------------------
+DATABASE RESULTS
+--------------------------------------
+ERRORS FOUND:	0
+DROP TABLE:	removed (0) tables
+QUERIES RAN:	134
+
+wp_commentmeta: (0)
+wp_comments: (1)
+wp_duplicator_pro_entities: (2)
+wp_duplicator_pro_packages: (1)
+wp_links: (0)
+wp_options: (175)
+wp_postmeta: (1312)
+wp_posts: (251)
+wp_term_relationships: (1)
+wp_term_taxonomy: (1)
+wp_terms: (1)
+wp_usermeta: (35)
+wp_users: (1)
+Removed '45' cache/transient rows
+
+SECTION RUNTIME: 7.5464 sec.
+
+********************************************************************************
+STEP1 COMPLETE @ 09:12:12 - TOTAL RUNTIME: 20.6492 sec.
+********************************************************************************
+
+
+
+********************************************************************************
+DUPLICATOR INSTALL-LOG
+STEP2 START @ 09:12:18
+NOTICE: Do not post to public sites or forums
+********************************************************************************
+CHARSET SERVER:	latin1
+CHARSET CLIENT:	 utf8 
+
+--------------------------------------
+SERIALIZER ENGINE
+[*] scan every column
+[~] scan only text columns
+[^] no searchable columns
+--------------------------------------
+wp_commentmeta^ (0)
+wp_comments~ (1)
+wp_duplicator_pro_entities~ (2)
+wp_duplicator_pro_packages^ (0)
+wp_links^ (0)
+wp_options~ (129)
+wp_postmeta~ (1312)
+wp_posts~ (251)
+wp_term_relationships~ (1)
+wp_term_taxonomy~ (1)
+wp_terms~ (1)
+wp_usermeta~ (35)
+wp_users~ (1)
+--------------------------------------
+SEARCH1:	'http://slapvagnar.wibergsweb.se' 
+REPLACE1:	'http://slapvagnar' 
+SEARCH2:	'/www/webvol33/lu/jefhhoojps7ds1j/slapvagnar.wibergsweb.se/public_html/' 
+REPLACE2:	'F:/wamp64/www/multus_slapvagnar/' 
+SCANNED:	Tables:13 | Rows:1734 | Cells:11721 
+UPDATED:	Tables:1 | Rows:255 |Cells:351 
+ERRORS:		0 
+RUNTIME:	0.879100 sec
+
+********************************************************************************
+START FINAL CLEANUP: 09:12:19
+********************************************************************************
+UPDATE `wp_blogs` SET domain = 'slapvagnar' WHERE domain = 'slapvagnar.wibergsweb.se'
+
+--------------------------------------
+WARNINGS
+--------------------------------------
+No Warnings Found
+
+
+WEB SERVER CONFIGURATION FILE BASIC SETUP:
+created basic .htaccess file.  If using IIS web.config this process will need to be done manually.
+********************************************************************************
+STEP 2 COMPLETE @ 09:12:19 - TOTAL RUNTIME: 1.0311 sec.
+********************************************************************************

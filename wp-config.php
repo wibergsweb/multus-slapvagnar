@@ -16,7 +16,7 @@
 
 // ** MySQL-inställningar - MySQL-uppgifter får du från ditt webbhotell ** //
 /** Namnet på databasen du vill använda för WordPress */
-define('DB_NAME', 'multusdb');
+define('DB_NAME', 'slapvagnar');
 
 /** MySQL-databasens användarnamn */
 define('DB_USER', 'root');

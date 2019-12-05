@@ -413,7 +413,7 @@ Links:
         curl_setopt($c, CURLOPT_POST, true);
         curl_setopt($c, CURLOPT_PORT, $this->port);
         curl_setopt($c, CURLOPT_POSTFIELDS, $postfields);
-        curl_setopt($c, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
+        @curl_setopt($c, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($c, CURLOPT_USERAGENT, $this->user_agent);
         if ($outstream) {
             $this->outstream = $outstream;

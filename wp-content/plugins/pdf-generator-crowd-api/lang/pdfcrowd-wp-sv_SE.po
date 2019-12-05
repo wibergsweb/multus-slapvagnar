@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Package Name\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-04 06:00+0200\n"
-"PO-Revision-Date: 2016-09-04 11:19+0100\n"
+"PO-Revision-Date: 2017-01-09 21:19+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -382,3 +382,36 @@ msgstr "Löpande"
 
 msgid "Continuous facing"
 msgstr "Löpande vy"
+
+msgid "Fetching page/post..."
+msgstr "Hämtar sida/inlägg..."
+
+msgid "...with data from postid(s)"
+msgstr "...med data från inläggs-id"
+
+msgid "...using these datafields"
+msgstr "...som använder sig av dessa fält i databasen"
+
+msgid "..ACF datafieldkey values for each datafield"
+msgstr "..ACF nyckelfält för varje fält"
+
+msgid "Template when using data from acf"
+msgstr "Mall som används när data hämtas från ACF"
+
+msgid "ACF (Advanced Custom Fields) exists and is activated and the plugin can be used for fetching data from fields"
+msgstr "ACF (Advanced Custom Fields) existerar och är aktiverat och tillägget kan användas för att hämta data från datafält/ACF"
+
+msgid "ACF (Advanced Custom Fields) needs to be installed and activated for possible usage of data fetching"
+msgstr "ACF (Advanced Custom Fields) måste installeras och vara aktiverat för att kunna användas för att hämta data från databasen"
+
+msgid "Current content"
+msgstr "Nuvarande innehåll"
+
+msgid "Start debug"
+msgstr "Starta felsökning"
+
+msgid "No data_postid is given"
+msgstr "Inget inläggsid är angivet"
+
+msgid "Datafields must be given"
+msgstr "Du måste ange datafält som ska användas"

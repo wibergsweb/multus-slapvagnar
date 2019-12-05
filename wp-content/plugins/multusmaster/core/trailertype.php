@@ -42,17 +42,17 @@ if( !class_exists('multustrailertype') ) {
         
         //register custom post type
         $post_labels = array(
-              'name' => __('Trailertype', 'multusmaster-wp'),
-              'singular_name' => __('Trailertype', 'multusmaster-wp'),
-              'add_new' => __('Add trailertype', 'multusmaster-wp'),
-              'add_new_item' => __('Add new trailertype', 'multusmaster-wp'),
-              'edit_item' => __('Edit trailertype', 'multusmaster-wp'),
-              'new_item' => __('New trailertype', 'multusmaster-wp'),
-              'all_items' => __('All trailertypes', 'multusmaster-wp'),
-              'view_item' => __('Show trailertype', 'multusmaster-wp'),
-              'search_items' => __('Search trailertype', 'multusmaster-wp'),
-              'not_found' => __('No trailertypes found', 'multusmaster-wp'),
-              'not_found_in_trash' => __('No trailertypes found in trash', 'multusmaster-wp'),
+              'name' => __('Vagnstyp', 'multusmaster-wp'),
+              'singular_name' => __('Vagnstyp', 'multusmaster-wp'),
+              'add_new' => __('Lägg till vagnstyp', 'multusmaster-wp'),
+              'add_new_item' => __('Lägg till ny vagnstyp', 'multusmaster-wp'),
+              'edit_item' => __('Redigera vagnstyp', 'multusmaster-wp'),
+              'new_item' => __('Ny vagnstyp', 'multusmaster-wp'),
+              'all_items' => __('Alla vagnstyper', 'multusmaster-wp'),
+              'view_item' => __('Visa vagnstyp', 'multusmaster-wp'),
+              'search_items' => __('Sök vagnstyp', 'multusmaster-wp'),
+              'not_found' => __('Inga vagnstyper funna', 'multusmaster-wp'),
+              'not_found_in_trash' => __('Inga vagnstyper funns i soptunnan', 'multusmaster-wp'),
               'parent_item_colon'  => '',
               'menu_name' => __('Trailertypes', 'multusmaster-wp')
             );

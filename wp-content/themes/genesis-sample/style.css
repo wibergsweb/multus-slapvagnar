@@ -1464,6 +1464,23 @@ p.entry-meta {
 }
 
 
+/* Custom Wibergs Web */
+table.pdfcrowd-table {width:100%;}
+table.pdfcrowd-table th {font-weight:bold;text-align:left !important;}
+table.pdfcrowd-table td {text-align:left !important;width:25%;}
+table.pdfcrowd-table th.col-4 {text-align:right !important;}
+table.pdfcrowd-table td.col-4 {text-align:right !important;}
+
+.pdf-logotype {display: block; float: left;font-size:16px;width:350px;max-width:350px;}
+.pdf-logotype p {margin:0;}
+.rightcol-note {float:right;width:350px;max-width:350px;display:block;font-size:16px;}
+.trailerswrapper {font-size:18px;}
+
+.notefooter-wrapper {font-size:16px;}
+td.title {font-weight:bold;}
+.removep p {display:none;}
+.rightcol-note h3 {font-size:22px !important;}
+
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
